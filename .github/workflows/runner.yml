@@ -1,15 +1,52 @@
-name: Test
+name: AI Blog Factory
 
 on:
+  schedule:
+
+    # 한국 새벽 6시 (중국 한국 일본)
+    - cron: '0 21 * * *'
+
+    # 한국 오전 8시 (베트남 인도네시아)
+    - cron: '0 23 * * *'
+
+    # 한국 오전 9시 (인도)
+    - cron: '0 0 * * *'
+
+    # 한국 오후 1시 (이집트 사우디)
+    - cron: '0 4 * * *'
+
+    # 한국 오후 2시 (독일 프랑스)
+    - cron: '0 5 * * *'
+
+    # 한국 오후 4시 (브라질 영국)
+    - cron: '0 7 * * *'
+
+    # 한국 오후 7시 (미국 멕시코)
+    - cron: '0 10 * * *'
+
   workflow_dispatch:
+
 
 jobs:
 
-  test:
+  run-blog:
 
     runs-on: ubuntu-latest
 
     steps:
 
-    - name: Hello
-      run: echo "AI blog factory working"
+    - name: Repository 코드 다운로드
+      uses: actions/checkout@v4
+
+    - name: Python 설치
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+
+    - name: 라이브러리 설치
+      run: |
+        pip install -r requirements.txt
+
+    - name: 블로그 시스템 실행
+      run: |
+        python main.py
