@@ -6,8 +6,8 @@ BLOG_EMAIL="agrocell4you.seed5626A@blogger.com"
 SMTP_SERVER="smtp.gmail.com"
 SMTP_PORT=587
 
-EMAIL="YOUR_GMAIL"
-PASSWORD="APP_PASSWORD"
+EMAIL="agrocell4you@gmail.com"
+PASSWORD="trdm xler apvx zfcl"
 
 
 def post_to_blogger(title,content):
