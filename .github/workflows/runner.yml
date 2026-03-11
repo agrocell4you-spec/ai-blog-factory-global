@@ -1,13 +1,15 @@
-name: AI Blog Factory
+name: Test
 
 on:
-  schedule:
-    - cron: '0 6 * * *'
-    - cron: '0 8 * * *'
-    - cron: '0 9 * * *'
-    - cron: '0 13 * * *'
-    - cron: '0 14 * * *'
-    - cron: '0 16 * * *'
-    - cron: '0 19 * * *'
-
   workflow_dispatch:
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Hello
+      run: echo "AI blog factory working"
