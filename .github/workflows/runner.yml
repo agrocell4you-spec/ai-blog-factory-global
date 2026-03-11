@@ -1,30 +1,49 @@
 name: AI Blog Factory
 
 on:
- schedule:
+  schedule:
 
-   - cron: '0 6 * * *'
-   - cron: '0 8 * * *'
-   - cron: '0 9 * * *'
-   - cron: '0 13 * * *'
-   - cron: '0 14 * * *'
-   - cron: '0 16 * * *'
-   - cron: '0 19 * * *'
+    # 중국 한국 일본
+    - cron: '0 6 * * *'
+
+    # 베트남 인도네시아
+    - cron: '0 8 * * *'
+
+    # 인도
+    - cron: '0 9 * * *'
+
+    # 이집트 사우디
+    - cron: '0 13 * * *'
+
+    # 독일 프랑스
+    - cron: '0 14 * * *'
+
+    # 브라질 영국
+    - cron: '0 16 * * *'
+
+    # 미국 멕시코
+    - cron: '0 19 * * *'
+
 
 jobs:
- run:
+  run-blog:
 
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-   steps:
+    steps:
 
-   - uses: actions/checkout@v4
+    - name: 코드 다운로드
+      uses: actions/checkout@v4
 
-   - name: Install python
-     uses: actions/setup-python@v4
-     with:
-       python-version: '3.11'
+    - name: Python 설치
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
 
-   - run: pip install -r requirements.txt
+    - name: 라이브러리 설치
+      run: |
+        pip install -r requirements.txt
 
-   - run: python main.py
+    - name: 블로그 실행
+      run: |
+        python main.py
